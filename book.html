@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bus Booking</title>
+<style>
+  /* Basic CSS for styling */
+  /* You can style it further based on your design requirements */
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Bus Booking</h2>
+  <form id="bookingForm">
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required>
+
+    <label for="seat">Select Seat</label>
+    <select id="seat" name="seat" required>
+      <option value="">Select a seat</option>
+      <option value="1A">1A</option>
+      <option value="1B">1B</option>
+
+    </select>
+
+    <button type="submit">Book Now</button>
+  </form>
+</div>
+
+<script>
+
+  document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var fullName = document.getElementById("fullName").value;
+    var age = document.getElementById("age").value;
+    var seat = document.getElementById("seat").value;
+    
+  
+    if (fullName.trim() === '' || age.trim() === '' || seat.trim() === '') {
+      alert("Please fill in all fields.");
+      return false;
+    }
+    
+    
+    alert("Booking successful!\nName: " + fullName + "\nAge: " + age + "\nSeat: " + seat);
+   
+    document.getElementById("bookingForm").reset();
+  });
+</script>
+
+</body>
+</html>

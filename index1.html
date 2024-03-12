@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>home page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0b294b;
+            color: #fff;
+            padding: 20px 10px;
+            padding-right: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:active {
+            text-decoration: underline;
+        }
+
+
+
+        .bookingForm {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-left: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0b294b;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+           margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0b294b;
+        }
+
+        footer {
+            background-color: #0b294b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">BusBooking</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#search-bus">Search Bus</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" onclick="myFunction()">Login</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <div class="bookingForm">
+        <h2>Bus Booking</h2>
+        <label for="departure">Departure:</label>
+        <input type="text" id="departure" placeholder="Enter departure location">
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Enter destination location">
+
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+
+        <label for="passengers">Number of Passengers:</label>
+        <input type="number" id="passengers" min="1" placeholder="Enter number of passengers">
+
+        <button onclick="bookBus()">Book Now</button>
+    </div>
+
+
+
+
+
+    <footer>
+        <p>&copy; 2024 Online BusBooking Platform. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+        </div>
+
+        <p>For customer support, contact 
+            <a href="mailto:support@onlinebusbookingplatform.com" style="color: #fff;">support@onlinebusbookingplatform.com</a></p>
+
+        <p>Follow us on
+            <a href="#" target="_blank"><img src="facebook-icon.png" alt="Facebook" style="color: #fff;" ></a>
+            <a href="#" target="_blank"><img src="twitter-icon.png" alt="Twitter" style="color: #fff;"></a>
+            <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"style="color: #fff;"></a>
+        </p>
+    </div>
+        <p>
+            Online Bus Booking<br>
+            123 Main Street, Cityville, State, 12345
+        </p>
+    </footer>
+
+</body>
+
+</html>
+
+</footer>
+<script src="script.js"></script>
+<script>
+    function myFunction() {
+        location.replace("http://127.0.0.1:5501/loginpage.html")
+    }
+
+    function bookBus() {
+        const departure = document.getElementById('departure').value;
+        const destination = document.getElementById('destination').value;
+        const date = document.getElementById('date').value;
+        const passengers = document.getElementById('passengers').value;
+
+        // Perform booking logic here
+        alert(
+            `Booking confirmed!\nDeparture: ${departure}\nDestination: ${destination}\nDate: ${date}\nPassengers: ${passengers}`
+        );
+    }
+</script>
+</body>
+
+</html>

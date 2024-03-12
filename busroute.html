@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Bus Route Reservation</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+#app {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+ 
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#confirmationMessage {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h1>Bus Route Reservation</h1>
+
+    <form id="reservationForm">
+        <label for="fromCity">From City:</label>
+        <input type="text" id="fromCity" required>
+
+        <label for="toCity">To City:</label>
+        <input type="text" id="toCity" required>
+
+        <label for="departureDate">Departure Date:</label>
+        <input type="date" id="departureDate" required>
+
+        <button type="button" onclick="reserveTicket()">Reserve Ticket</button>
+    </form>
+
+    <div id="confirmationMessage"></div>
+</div>
+
+<script >
+function reserveTicket() {
+    const fromCity = document.getElementById('fromCity').value;
+    const toCity = document.getElementById('toCity').value;
+    const departureDate = document.getElementById('departureDate').value;
+
+    // Basic validation
+    if (!fromCity || !toCity || !departureDate) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    const confirmationMessage = `Ticket reserved from ${fromCity} to ${toCity} on ${departureDate}.`;
+    document.getElementById('confirmationMessage').innerText = confirmationMessage;
+
+    // You can add further logic to send this information to a server, etc.
+}
+
+</script>
+</body>
+</html>
