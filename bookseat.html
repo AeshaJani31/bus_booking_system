@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Booking</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bus-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    background-color: #bdc3c7;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #3498db;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bus Seat Booking</h1>
+        <div class="bus-layout" id="busLayout"></div>
+        <button onclick="bookSeat()">Book Selected Seat</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const busLayout = document.getElementById("busLayout");
+    const message = document.getElementById("message");
+
+    // Create bus seats
+    for (let i = 1; i <= 16; i++) {
+        const seat = document.createElement("div");
+        seat.classList.add("seat");
+        seat.textContent = i;
+        seat.addEventListener("click", () => toggleSeat(seat));
+        busLayout.appendChild(seat);
+    }
+
+    // Function to toggle seat selection
+    function toggleSeat(seat) {
+        seat.classList.toggle("selected");
+    }
+
+    // Function to book selected seat
+    window.bookSeat = () => {
+        const selectedSeats = document.querySelectorAll(".seat.selected");
+        if (selectedSeats.length === 0) {
+            message.textContent = "Please select a seat.";
+        } else {
+            const seatNumbers = Array.from(selectedSeats).map(seat => seat.textContent);
+            message.textContent = `Booked seats: ${seatNumbers.join(', ')}`;
+            // Here, you can send the booked seat information to the server using AJAX or fetch in real-world scenarios.
+        }
+    };
+});
+
+    </script>
+</body>
+</html>
